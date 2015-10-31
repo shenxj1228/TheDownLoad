@@ -1,0 +1,100 @@
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\NewAPI.dll.config
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\NewAPI.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\NewAPI.pdb
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\Newtonsoft.Json.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Net.Http.Formatting.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Web.Http.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Web.Http.WebHost.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\Newtonsoft.Json.xml
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Net.Http.Formatting.xml
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Web.Http.xml
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\System.Web.Http.WebHost.xml
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\obj\Debug\NewAPI.dll
+E:\Users\Administrator\Documents\Visual Studio 2013\Projects\NewAPI\NewAPI\obj\Debug\NewAPI.pdb
+D:\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.dll.config
+D:\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.pdb
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Net.Http.Formatting.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.WebHost.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Net.Http.Formatting.xml
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.xml
+D:\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.WebHost.xml
+D:\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+D:\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+D:\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+D:\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.dll
+D:\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.pdb
+E:\Users\Administrator\Desktop\download\NewAPI\bin\NewAPI.dll.config
+E:\Users\Administrator\Desktop\download\NewAPI\bin\NewAPI.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\NewAPI.pdb
+E:\Users\Administrator\Desktop\download\NewAPI\bin\Newtonsoft.Json.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Net.Http.Formatting.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Web.Http.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Web.Http.WebHost.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\Newtonsoft.Json.xml
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Net.Http.Formatting.xml
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Web.Http.xml
+E:\Users\Administrator\Desktop\download\NewAPI\bin\System.Web.Http.WebHost.xml
+E:\Users\Administrator\Desktop\download\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+E:\Users\Administrator\Desktop\download\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+E:\Users\Administrator\Desktop\download\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+E:\Users\Administrator\Desktop\download\NewAPI\obj\Debug\NewAPI.dll
+E:\Users\Administrator\Desktop\download\NewAPI\obj\Debug\NewAPI.pdb
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.dll.config
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.pdb
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\Newtonsoft.Json.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Net.Http.Formatting.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.WebHost.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\Newtonsoft.Json.xml
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Net.Http.Formatting.xml
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.xml
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.WebHost.xml
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.dll
+E:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.pdb
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.dll.config
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\NewAPI.pdb
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.xml
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.dll
+C:\Users\Administrator\Desktop\NewAPI\NewAPI\obj\Debug\NewAPI.pdb
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.dll.config
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\NewAPI.pdb
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\Newtonsoft.Json.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\Newtonsoft.Json.xml
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.xml
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.csprojResolveAssemblyReference.cache
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.dll
+C:\Users\sxj\OneDrive\Project\NewAPI\NewAPI\obj\Debug\NewAPI.pdb

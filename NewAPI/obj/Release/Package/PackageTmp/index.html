@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/allf.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" href="css/metroStyle/metroStyle.css" type="text/css" />
+    <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <title>文件下载</title>
+
+    <script type="text/javascript" src="js/jquery-1.8.8.js"></script>
+        <script type="text/javascript">
+           
+
+        //读取类型集合xml
+        $.ajax({
+            url: "FileType.xml",
+            dataType: 'xml',
+            success: function (data) {
+                typexml = data;
+            },
+            failed: function () {
+                alert('加载FileType.xml失败！');
+            }
+        });
+        function pageload(widthpercent, speed) {
+            var width = widthpercent * 1.5 + '%';
+            if (widthpercent == 100) {
+                $('#pageload').animate({ width: "100%" }, speed, function () {
+                    $('#pageload').animate({ width: '0' }, 0);
+                });
+            } else {
+                $('#pageload').animate({ width: width }, speed);
+            }
+
+        }
+    </script>
+    <script type="text/javascript" src="js/option.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+
+    <script type="text/javascript" src="js/jquery.ztree.core-3.5.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src='js/snap.svg-min.js'></script>
+    <!--[if IE]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="mp-pusher" id="mp-pusher">
+            <div id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <div style="background: url(images/ml.png) 0% 50% no-repeat; height: 60px;position:absolute;top:0;left:0;width:300px;"></div>
+                    <div style="height:100%;padding-top:60px;">
+                        
+                    <ul id="treeDemo" class="ztree"></ul>
+                     </div>
+                </div>
+            </div>
+
+            <div class="scroller">
+                <div class="contenttitle">
+                    <div id="pageload"></div>
+                     
+                    <h2 id="logo" class="logo"></h2>
+                </div>
+                <div style="margin-left: 3em;"><a id="a_back" style="text-decoration: underline; cursor: pointer; color: rgb(19, 190, 236);"></a>当前路径：<h4 style="display: inline;" id="thisway"></h4>
+                </div>
+                <div class="alldom">
+                    <ul id="divall"></ul>
+                </div>
+                <div id="somedialog" class="dialog">
+                    <div class="dialog__overlay"></div>
+                    <div class="dialog__content">
+                    </div>
+                </div>
+                <div class="search" style="display: none;">
+                    <svg class="search-svg" viewbox="0 0 320 70"
+                        data-init="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21"
+                        data-mid="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5"
+                        data-active="M27,3 L293,3 a27,27 0 0,1 0,54 L27,57 a27,27 0 0,1 0,-54 M179.5,49.5 179.5,49.5">
+                        <path class="search-svg__path" d="M160,3 L160,3 a27,27 0 0,1 0,54 L160,57 a27,27 0 0,1 0,-54 M197,67 181.21,51.21" ></path>
+                    </svg>
+                    <input type="text" id="searchText" class="search-input" />
+                    <div class="search-close"></div>
+                </div>
+                <div class="rightdiv" style="top: 30%; border: solid 1px #8FB3CA; background: #DDDDDD;">
+                    <a id="a_catalog">
+                        <img alt="" src="images/catalog.png" />目 录</a>
+
+                    <a id="a_search">
+                        <img alt="" src="images/search.png" />查 询</a>
+                </div>
+                <div class="rightdiv" style="bottom: 20%;">
+                    <a id="a_top" href="#logo" target="_self" style="display: none;">
+                        <img alt="" style="display: block; margin: 2px auto;" src="images/top.png" /></a>
+                </div>
+                <div class="rightdiv" style="bottom: 5%;">
+                    <div id="zip_cart_area" style="bottom: 5%;">
+                        ﻿<div id="cart_container" style="display: none;">
+                            <div class="cart_title"><span class="ziptitle">文件打包下载</span><span id="info_alert"></span><span class="clo_x"><a href="javascript:;" class="clo_x_a">隐藏</a></span>
+
+                            </div>
+                            <img alt="" class="cartloader" src="images/ajax-loader.gif" style="display: none;" />
+                            <ul id="file_cart"></ul>
+                            <span class="options"><a id="downloadzip_a" href="javascript:;" class="download active">Download(<span id="d_c">0</span>)</a><a href="javascript:;" class="clear">清空</a></span>
+                        </div>
+                    </div>
+                    <a id="a_zip" style="color: #3083fd;">
+                        <img alt="" style="display: block; margin: 2px auto;" src="images/filezip.png" />(<span class="items">0</span>)</a>
+                </div>
+            </div>
+        </div>
+        <iframe id="ifile" style="display:none"></iframe>
+    </div>
+    <p style="display: none" id="rootfolder"></p>
+    <script type="text/javascript">pageload(50, 1500);</script>
+    <script type="text/javascript" src="js/mlpushmenu.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+</body>
+</html>
