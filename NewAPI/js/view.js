@@ -69,8 +69,6 @@ function () {
 
 });
 
-
-
 $(".scroller").scroll(function () {
     if ($('.scroller').scrollTop() > 400) {
         $("#a_top").fadeIn(200);
@@ -83,8 +81,16 @@ $(".scroller").scroll(function () {
 function downloadfile(file) {
     $(".dialog__content").empty();
     $(".search-close").click();
-    if (file.hasOwnProperty('name') && file.hasOwnProperty('path')&&file.hasOwnProperty('size')) {
-        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + file.size + "M)</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURI(file.path.replace(/\+/g, "%2B").replace(/\&/g, "%26")) + "\">Download</a></div>").appendTo($(".dialog__content"));
+    if (file.hasOwnProperty('name') && file.hasOwnProperty('path') && file.hasOwnProperty('size')) {
+        var size = file.size;
+        if (size / 1000 < 0.01) {
+            size = size.toFixed(2) + "B";
+        } else if (size / 1000000 >= 0.01) {
+            size = (size / 1000000).toFixed(2) + "M";
+        } else {
+            size = (size / 1000).toFixed(2) + "K";
+        }
+        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + size + ")</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURI(file.path.replace(/\+/g, "%2B").replace(/\&/g, "%26")) + "\">Download</a></div>").appendTo($(".dialog__content"));
         $(this).DialogToggle({
             'id': 'somedialog',  //传入id，可以控制样式
             'dialogFx': '1'     //传入显示和隐藏的参数
@@ -418,9 +424,17 @@ $("body").on("click", "#downloadzip_a", function () {
                     }
                     for (var j = 0; j < getjson.content.files.length; j++) {
                         var filetype = getFileType(getjson.content.files[j].name);
-                        var size = (getjson.content.files[j].size / 1000000).toFixed(2);
+                        var size = getjson.content.files[j].size;
+                        var size_title = 0;
+                        if (size / 1000 < 0.01) {
+                            size_title = size+"B";
+                        } else if (size / 1000000 >= 0.01) {
+                            size_title = (size / 1000000).toFixed(2)+"M";
+                        } else {
+                            size_title = (size / 1000).toFixed(2)+"K";
+                        }
                         var name = getjson.content.files[j].name;
-                        $("#divall").append("<li filetype=" + filetype + " style='background:url(images/filetype/" + filetype + ".png) 50% 30%  no-repeat;' path=\"" + getjson.content.files[j].path + "\" title=\"" + name + "(" + size + "M)\" size=\"" + size + "\" ><a class='add_cart'>+</a><p  class='fname' >" + name + "</p></li>");
+                        $("#divall").append("<li filetype=" + filetype + " style='background:url(images/filetype/" + filetype + ".png) 50% 30%  no-repeat;' path=\"" + getjson.content.files[j].path + "\" title=\"" + name + "(" + size_title + ")\" size=\"" + size + "\" ><a class='add_cart'>+</a><p  class='fname' >" + name + "</p></li>");
                         
                     }
 
