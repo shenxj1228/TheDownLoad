@@ -38,11 +38,13 @@ ul.ztree{
 }
 .rightdiv {
     position: fixed;
-    
     font-size: 12px;
-    right: 1.5em;
+    right: 2em;
+    z-index:99;
 }
-
+.tools{
+    padding:20px;
+}
 .tools:before{
     content: "";
     position: absolute;
@@ -69,7 +71,6 @@ ul.ztree{
 }
 
 .rightdiv>a {
-    padding:20px;
     cursor: pointer;
     position: relative;
     display: block;
@@ -92,6 +93,7 @@ ul.ztree{
     width: 100px;
     height: 115px;
     float: left;
+    color:#595c5f;
     margin-left: 55px;
     margin-bottom: 15px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -104,15 +106,8 @@ ul.ztree{
 
 #divall li:hover {
     
-    transform: scale(1.1);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    box-shadow: 10px 10px 5px #708090;
-    font-weight: bold;
-
-    
+    transform:translateY(-5px);
+    box-shadow: 10px 10px 5px #708090;    
 }
 #divall li:hover a {
     color: green !important;
@@ -138,7 +133,6 @@ ul.ztree{
     overflow: hidden;
     width: 98px;
     height: 20px;
-    color: #595c5f;
     line-height: 20px;
     text-align: center;
     font-size: 12px;
@@ -148,6 +142,7 @@ ul.ztree{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor:default;
 }
 
 .menu-zdy {

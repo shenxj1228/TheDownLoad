@@ -13,7 +13,7 @@
     <script type="text/javascript" src="js/jquery-1.8.8.js"></script>
         <script type="text/javascript">
            
-
+            
         //读取类型集合xml
         $.ajax({
             url: "FileType.xml",
@@ -88,31 +88,37 @@
                     <input type="text" id="searchText" class="search-input" />
                     <div class="search-close"></div>
                 </div>
-                <div class="rightdiv" style="top: 30%;  background: #398bfb;">
-                    <a class="tools" id="a_catalog">
-                        目 录</a>
+                
+            </div>
+            <div class="rightdiv" style="top: 30%;  background: #398bfb;">
+                <a class="tools" id="a_catalog">
+                    目 录
+                </a>
 
-                    <a class="tools" id="a_search">
-                        查 询</a>
-                </div>
-                <div class="rightdiv" style="bottom: 20%;">
-                    <a id="a_top" href="#logo" target="_self" style="display: none;">
-                        <img alt="" style="display: block; margin: 2px auto;" src="images/top.png" /></a>
-                </div>
-                <div class="rightdiv" style="bottom: 5%;">
-                    <div id="zip_cart_area" style="bottom: 5%;">
-                        ﻿<div id="cart_container" style="display: none;">
-                            <div class="cart_title"><span class="ziptitle">文件打包下载</span><span id="info_alert"></span><span class="clo_x"><a href="javascript:;" class="clo_x_a">隐藏</a></span>
+                <a class="tools" id="a_search">
+                    查 询
+                </a>
+            </div>
+            <div class="rightdiv" style="bottom: 20%;">
+                <a id="a_top" href="#logo" target="_self" style="display: none;">
+                    <img alt="" style="display: block; margin: 2px auto;" src="images/top.png" />
+                </a>
+            </div>
+            <div class="rightdiv" style="bottom: 5%;">
+                <div id="zip_cart_area" style="bottom: 5%;">
+                    ﻿<div id="cart_container" style="display: none;">
+                        <div class="cart_title">
+                            <span class="ziptitle">文件打包下载</span><span id="info_alert"></span><span class="clo_x"><a href="javascript:;" class="clo_x_a">隐藏</a></span>
 
-                            </div>
-                            <img alt="" class="cartloader" src="images/ajax-loader.gif" style="display: none;" />
-                            <ul id="file_cart"></ul>
-                            <span class="options"><a id="downloadzip_a" href="javascript:;" class="download active">Download(<span id="d_c">0</span>)</a><a href="javascript:;" class="clear">清空</a></span>
                         </div>
+                        <img alt="" class="cartloader" src="images/ajax-loader.gif" style="display: none;" />
+                        <ul id="file_cart"></ul>
+                        <span class="options"><a id="downloadzip_a" href="javascript:;" class="download active">Download(<span id="d_c">0</span>)</a><a href="javascript:;" class="clear">清空</a></span>
                     </div>
-                    <a id="a_zip" style="color: #3083fd;">
-                        <img alt="" style="display: block; margin: 2px auto;" src="images/filezip.png" />(<span class="items">0</span>)</a>
                 </div>
+                <a id="a_zip" style="color: #3083fd;">
+                    <img alt="" style="display: block; margin: 2px auto;" src="images/filezip.png" />(<span class="items">0</span>)
+                </a>
             </div>
         </div>
         <iframe id="ifile" style="display:none"></iframe>

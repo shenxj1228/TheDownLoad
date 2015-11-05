@@ -6,7 +6,7 @@ $(function () {
         alert('确定新建文件夹？')
         setTimeout(
 function () {
-    $parent.append("<li><input type='text' \class='fname'\ value='新建文件夹'/></li>");
+    $parent.append("<li><input type='text' class='fname' value='新建文件夹'/></li>");
 }, 500);
     });
     //清空
@@ -43,7 +43,7 @@ function () {
     //下载或者添加到压缩包
     $parent.on('click', "li[filetype!='folder']", function (e) {
         if ($(e.target).hasClass("add_cart")) {
-            if (parseInt($(e.target).parent().attr('size'))<5) {
+            if (parseInt($(e.target).parent().attr('size'))<5000000) {
                 addTozip(e.target);
             } else {
                 alert("大于5M的文件不能压缩");
@@ -70,7 +70,7 @@ function () {
 });
 
 $(".scroller").scroll(function () {
-    if ($('.scroller').scrollTop() > 400) {
+    if ($('.scroller').scrollTop() > 100) {
         $("#a_top").fadeIn(200);
     }
     else {
@@ -90,7 +90,7 @@ function downloadfile(file) {
         } else {
             size = (size / 1000).toFixed(2) + "K";
         }
-        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + size + ")</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURI(file.path.replace(/\+/g, "%2B").replace(/\&/g, "%26")) + "\">Download</a></div>").appendTo($(".dialog__content"));
+        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + size + ")</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURI(file.path.replace(/\+/g, "%2B").replace(/\&/g, "%26")) +"&idel=0\">Download</a></div>").appendTo($(".dialog__content"));
         $(this).DialogToggle({
             'id': 'somedialog',  //传入id，可以控制样式
             'dialogFx': '1'     //传入显示和隐藏的参数
@@ -216,7 +216,7 @@ $("body").on("click", "#downloadzip_a", function () {
                     alert(getjson.content);
                 } else {
 
-                    $("#ifile").attr("src", "api/Files/download?filepath=" + getjson.rootfolder + "");
+                    $("#ifile").attr("src", "api/Files/download?filepath=" + getjson.rootfolder + "&idel=1");
                 }
                 $(".cartloader").css('display', "none");
             }

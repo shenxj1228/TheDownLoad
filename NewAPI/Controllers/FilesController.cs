@@ -91,29 +91,42 @@ namespace TheDownLoad.Controllers
         }
         [HttpGet]
         [ActionName("download")]
-        public HttpResponseMessage DownLoad(string filepath)
+        public HttpResponseMessage DownLoad(string filepath,string idel)
         {
 
             try
             {
                 filepath = System.Web.HttpUtility.UrlDecode(filepath, System.Text.Encoding.UTF8);  
                 string customFileName = Path.GetFileName(filepath);//客户端保存的文件名
-                
-                FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read, FileShare.Read);
                 HttpResponseMessage response = new HttpResponseMessage();
-                response.Content = new StreamContent(fileStream);
+                if (idel == "1")
+                {
+                    byte[] data = File.ReadAllBytes(filepath);
+                    MemoryStream ms = new MemoryStream(data);
+                    response.Content = new StreamContent(ms);
+                    if (File.Exists(filepath))
+                    {
+                        File.Delete(filepath);
+                    }
+                }
+                else
+                {
+                    
+                    FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                    response.Content = new StreamContent(fs);
+                }
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
                 response.Content.Headers.ContentDisposition.FileName = System.Web.HttpUtility.UrlEncode(customFileName);
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");  // 这句话要告诉浏览器要下载文件
                 response.Content.Headers.ContentLength = new FileInfo(filepath).Length;
-               
                 return response;
+        
                 
             }
-            catch
+            catch(System.IO.IOException e)
             {
 
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return Request.CreateResponse(e);
             }
         }
 

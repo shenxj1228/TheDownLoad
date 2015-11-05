@@ -12,9 +12,8 @@ C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
 C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
-C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\obj\Debug\NewAPI.dll
-C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\obj\Debug\NewAPI.pdb
-C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\obj\Debug\DownLoad.csprojResolveAssemblyReference.cache
+C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\obj\Release\NewAPI.dll
+C:\Users\sxj\OneDrive\Project\DownLoad\NewAPI\obj\Release\NewAPI.pdb
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\NewAPI.dll.config
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\NewAPI.dll
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\NewAPI.pdb
@@ -29,5 +28,5 @@ C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Web.Http.resources.dll
 C:\Users\test\OneDrive\Project\DownLoad\NewAPI\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
-C:\Users\test\OneDrive\Project\DownLoad\NewAPI\obj\Debug\NewAPI.dll
-C:\Users\test\OneDrive\Project\DownLoad\NewAPI\obj\Debug\NewAPI.pdb
+C:\Users\test\OneDrive\Project\DownLoad\NewAPI\obj\Release\NewAPI.dll
+C:\Users\test\OneDrive\Project\DownLoad\NewAPI\obj\Release\NewAPI.pdb
