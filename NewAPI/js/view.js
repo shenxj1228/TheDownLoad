@@ -43,10 +43,14 @@ function () {
     //下载或者添加到压缩包
     $parent.on('click', "li[filetype!='folder']", function (e) {
         if ($(e.target).hasClass("add_cart")) {
-            if (parseInt($(e.target).parent().attr('size'))<5000000) {
-                addTozip(e.target);
+            if (parseInt($(e.target).parent().attr('size')) <= zipMax.maxSize) {
+                if ($("#file_cart>li").length < zipMax.maxCount) {
+                    addTozip(e.target);
+                } else {
+                    alert("压缩文件个数不能超过" + zipMax.maxCount + "个");
+                }
             } else {
-                alert("大于5M的文件不能压缩");
+                alert("大于"+zipMax.maxSize/1000/1000+"M的文件不能压缩");
             }
         } else {
             downloadfile({ name: $(this).find("p").text(), path: $(this).attr("path"), size: $(this).attr('size') });
@@ -68,7 +72,6 @@ function () {
 
 
 });
-
 $(".scroller").scroll(function () {
     if ($('.scroller').scrollTop() > 100) {
         $("#a_top").fadeIn(200);
@@ -90,7 +93,7 @@ function downloadfile(file) {
         } else {
             size = (size / 1000).toFixed(2) + "K";
         }
-        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + size + ")</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURI(file.path.replace(/\+/g, "%2B").replace(/\&/g, "%26")) +"&idel=0\">Download</a></div>").appendTo($(".dialog__content"));
+        $("<h2>点击<strong>Download</strong>下载<strong>" + file.name + "</strong>(" + size + ")</h2><div><a id='btndownload' target='_blank' class='action' href=\"api/Files/download?filepath=" + encodeURIComponent(file.path) + "&idel=0\">Download</a></div>").appendTo($(".dialog__content"));
         $(this).DialogToggle({
             'id': 'somedialog',  //传入id，可以控制样式
             'dialogFx': '1'     //传入显示和隐藏的参数
@@ -126,6 +129,20 @@ $("#a_top").click(function () {
 function addTozip(add_a) {
 
     var flyElm = $(add_a).parent().clone().css('opacity', '0.7');
+    var img = $(add_a).parent()[0].style.background;
+    var name = $(add_a).next().text();
+    var path = $(add_a).parent().attr('path');
+    var status = false;
+    $("#file_cart li").each(function() {
+        if ($(this).attr('path') == path) {
+            status = true;
+            return false;
+        }
+    });
+    if (!status) {
+        $('<li filetype="file" style="background:' + img + ';display:none;" path="' + path + '" title="' + name + '"><a class="del_a">*</a><p class="fname">' + name + '</p></li>').appendTo($("#file_cart"));
+    }
+
     flyElm.css({
         'z-index': 9000,
         'display': 'block',
@@ -136,34 +153,24 @@ function addTozip(add_a) {
         'height': $(add_a).parent().height() + 'px'
     });
     $('body').append(flyElm);
+
     flyElm.animate({
         top: $('#a_zip').offset().top,
         left: $('#a_zip').offset().left,
         width: 10,
         height: 10
     }, {
-        duration: 1000, queue: false, complete: function () {
+        duration: 1000,
+        queue: false,
+        complete: function() {
             flyElm.remove();
-            var img = $(add_a).parent()[0].style.background;
-            var name = $(add_a).next().text();
-            var path = $(add_a).parent().attr('path');
-            var status = false;
-            $("#file_cart li").each(function () {
-                if ($(this).attr('path') == path) {
-                    status = true;
-                    return false;
-                }
-            });
-            if (!status) {
-                $("<li filetype='file' style='background:" + img + "' path='" + path + "' title='" + name + "'><a class='del_a'>*</a><p class='fname'>" + name + "</p></li>").appendTo($("#file_cart"));
-                var n = $("#file_cart li").length;
-                $('.items').text(n);
-                $('#d_c').text(n);
-            }
+            $("#file_cart li").css("display", "block");
+            var n = $("#file_cart li").length;
+            $('.items').text(n);
+            $('#d_c').text(n);
             $("#cart_container").css("display", "block");
         }
-    }
-    );
+    });
 };
 
 //显示压缩包内容
@@ -199,7 +206,7 @@ $("body").on("click", "#downloadzip_a", function () {
     } else {
         $("#file_cart li").each(function () {
             if (typeof ($(this).attr('path')) != "undefined") {
-                paths += $(this).attr('path') + '|';
+                paths += encodeURIComponent($(this).attr('path')) + '|';
             }
         });
         $("#file_cart").empty();
@@ -209,7 +216,7 @@ $("body").on("click", "#downloadzip_a", function () {
         $.ajax({
             url: "api/Files/downloadzip",
             type: "POST",
-            data: { '': encodeURI(paths.replace(/\+/g, "%2B").replace(/\&/g, "%26")) },//这里键名称必须为空，多个参数请传对象，api端参数名必须为value
+            data: { '': paths },//这里键名称必须为空，多个参数请传对象，api端参数名必须为value
             success: function (data) {
                 var getjson = eval("(" + data + ")");
                 if (getjson.status != "success") {
@@ -342,7 +349,7 @@ $("body").on("click", "#downloadzip_a", function () {
             pageload(80, 400);
             $("#mp-pusher").addClass("mp-pushed");
             $.ajax({
-                url: "api/Files/searchfile?strsearch=" + encodeURI(searchfile.replace(/\+/g, "%2B").replace(/\&/g, "%26")) + "&strhz=" + encodeURI(strhz.replace(/\+/g, "%2B").replace(/\&/g, "%26")),
+                url: "api/Files/searchfile?strsearch=" + encodeURIComponent(searchfile) + "&strhz=" + encodeURIComponent(strhz),
                 type: "GET",
                 success: function (data) {
                     var getjson = eval("(" + data + ")");
@@ -405,7 +412,7 @@ $("body").on("click", "#downloadzip_a", function () {
         $("#divall").empty();
         pageload(80, 200);
         $.ajax({
-            url: "api/Files/getlist?filepath=" + encodeURI(folderpath.replace(/\+/g, "%2B").replace(/\&/g, "%26")),
+            url: "api/Files/getlist?filepath=" + encodeURIComponent(folderpath),
             contentType: "application/x-www-form-urlencoded; charset=utf-8",
             type: "GET",
             success: function (data) {

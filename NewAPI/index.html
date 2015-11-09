@@ -25,6 +25,16 @@
                 alert('加载FileType.xml失败！');
             }
         });
+        $.ajax({
+            url: "api/Files/getZipMax",
+            dataType: 'json',
+            success: function (data) {
+                zipMax = eval("("+data+")");
+            },
+            failed: function () {
+                alert('加载FileType.xml失败！');
+            }
+        });
         function pageload(widthpercent, speed) {
             var width = widthpercent * 1.5 + '%';
             if (widthpercent == 100) {

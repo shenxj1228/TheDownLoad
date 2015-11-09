@@ -24,6 +24,27 @@ namespace TheDownLoad.Controllers
         }
 
         private string rootFolder = (ConfigurationManager.AppSettings["rootFolder"].EndsWith("\\")) ? ConfigurationManager.AppSettings["rootFolder"].Remove(ConfigurationManager.AppSettings["rootFolder"].LastIndexOf('\\')) : ConfigurationManager.AppSettings["rootFolder"];
+        private int maxSize = Convert.ToInt32(ConfigurationManager.AppSettings["maxSize"]);
+        private int maxCount= Convert.ToInt32(ConfigurationManager.AppSettings["maxCount"]);
+
+        /// <summary>
+        /// 获得最大压缩文件的尺寸和数量
+        /// </summary>
+        /// <returns>{maxSize:5,maxCount:10}</returns>
+        [HttpGet]
+        [ActionName("getZipMax")]
+        public string getZipMax()
+        {
+            try
+            {
+                return "{maxSize:" + maxSize + ",maxCount:" + maxCount + "}";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         // GET api/<controller>/5
         /// <summary>
         /// 获得文件内容列表
@@ -36,10 +57,8 @@ namespace TheDownLoad.Controllers
         {
             try
             {
-
-                filepath = System.Web.HttpUtility.UrlDecode(filepath, System.Text.Encoding.UTF8);  
                 
-                filepath = (filepath == null) ? rootFolder : filepath;
+                filepath = (filepath == null) ? rootFolder : Uri.UnescapeDataString(filepath);
                 var folders = System.IO.Directory.EnumerateDirectories(filepath, "*", System.IO.SearchOption.TopDirectoryOnly).Where(directoryinfo => (File.GetAttributes(directoryinfo) & FileAttributes.System) != FileAttributes.System).Where(directoryinfo => (File.GetAttributes(directoryinfo) & FileAttributes.Hidden) != FileAttributes.Hidden).Select(path => new FileProperty { path = path, name = new DirectoryInfo(path).Name, size = "-1" }).ToList();
 
                 var files = System.IO.Directory.EnumerateFiles(filepath, "*", System.IO.SearchOption.TopDirectoryOnly).Where(fileinfo => (File.GetAttributes(fileinfo) & FileAttributes.System) != FileAttributes.System).Where(fileinfo => (File.GetAttributes(fileinfo) & FileAttributes.Hidden) != FileAttributes.Hidden).Select(path => new FileProperty { path = path, name = new FileInfo(path).Name, size = (new FileInfo(path).Length).ToString()}).ToList();
@@ -96,7 +115,7 @@ namespace TheDownLoad.Controllers
 
             try
             {
-                filepath = System.Web.HttpUtility.UrlDecode(filepath, System.Text.Encoding.UTF8);  
+                filepath = Uri.UnescapeDataString(filepath);  
                 string customFileName = Path.GetFileName(filepath);//客户端保存的文件名
                 HttpResponseMessage response = new HttpResponseMessage();
                 if (idel == "1")
@@ -104,10 +123,6 @@ namespace TheDownLoad.Controllers
                     byte[] data = File.ReadAllBytes(filepath);
                     MemoryStream ms = new MemoryStream(data);
                     response.Content = new StreamContent(ms);
-                    if (File.Exists(filepath))
-                    {
-                        File.Delete(filepath);
-                    }
                 }
                 else
                 {
@@ -116,9 +131,13 @@ namespace TheDownLoad.Controllers
                     response.Content = new StreamContent(fs);
                 }
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-                response.Content.Headers.ContentDisposition.FileName = System.Web.HttpUtility.UrlEncode(customFileName);
+                response.Content.Headers.ContentDisposition.FileName = customFileName;
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");  // 这句话要告诉浏览器要下载文件
                 response.Content.Headers.ContentLength = new FileInfo(filepath).Length;
+                if (idel == "1"&&File.Exists(filepath))
+                {
+                    File.Delete(filepath);
+                }
                 return response;
         
                 
@@ -142,7 +161,7 @@ namespace TheDownLoad.Controllers
             try
             {
 
-                filepath = System.Web.HttpUtility.UrlDecode(filepath, System.Text.Encoding.UTF8);  
+                filepath = Uri.UnescapeDataString(filepath);  
                  filepath = (filepath == null) ? rootFolder : (filepath);
 
                  var folders = System.IO.Directory.EnumerateDirectories(filepath, "*", System.IO.SearchOption.TopDirectoryOnly).Where(directoryinfo => (File.GetAttributes(directoryinfo) & FileAttributes.System) != FileAttributes.System).Where(directoryinfo => (File.GetAttributes(directoryinfo) & FileAttributes.Hidden) != FileAttributes.Hidden).Select(path => new TreeNode { isParent = true, filepath = path, name = new DirectoryInfo(path).Name }).ToList();
@@ -161,8 +180,8 @@ namespace TheDownLoad.Controllers
         [ActionName("searchfile")]
         public string SearchFile(string strsearch,string strhz="*")
         {
-            strsearch = System.Web.HttpUtility.UrlDecode(strsearch, System.Text.Encoding.UTF8);
-            strhz = System.Web.HttpUtility.UrlDecode(strhz, System.Text.Encoding.UTF8); 
+            strsearch = Uri.UnescapeDataString(strsearch);
+            strhz = Uri.UnescapeDataString(strhz); 
  
             try
             {
@@ -202,7 +221,7 @@ namespace TheDownLoad.Controllers
         {
             try
             {
-                value = System.Web.HttpUtility.UrlDecode(value, System.Text.Encoding.UTF8);
+                value = Uri.UnescapeDataString(value);
                 string[] filepaths = value.Split('|');
                 string zipfile = HttpContext.Current.Server.MapPath("~/zip/"+DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss")+".zip");
                 using (ZipFile zip = ZipFile.Create(zipfile))

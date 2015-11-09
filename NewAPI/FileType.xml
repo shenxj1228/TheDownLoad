@@ -7,6 +7,7 @@
     <hz>jpe</hz>
     <hz>png</hz>
     <hz>gif</hz>
+    <hz>ico</hz>
   </filetype>
   <filetype type="tiff" described="tiff文件">
     <hz>tif</hz>
@@ -99,7 +100,8 @@
 	<hz>log</hz>
     <hz>txt</hz>
   </filetype>
-  <filetype type="ini" discribed="配置信息文件">
+  <filetype type="config" discribed="配置信息文件">
+  	<hz>config</hz>
 	<hz>ini</hz>
   </filetype>
   <filetype type="iso" discribed="镜像文件">
@@ -111,5 +113,16 @@
   </filetype>
   <filetype type="html" discribed="html文件">
 	<hz>html</hz>
+	<hz>htm</hz>
+	<hz>xhtml</hz>
+  </filetype>
+  <filetype type="js" discribed="js文件">
+	<hz>js</hz>
+  </filetype>
+  <filetype type="dat" discribed="dat文件">
+	<hz>dat</hz>
+  </filetype>
+  <filetype type="swf" discribed="swf文件">
+	<hz>swf</hz>
   </filetype>
 </filetypes>
